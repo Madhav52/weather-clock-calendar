@@ -1,0 +1,148 @@
+@import url(https://fonts.googleapis.com/css?family=Istok+Web:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+html, body {
+  background: url('http://paper-backgrounds.com/textureimages/2012/05/white-concrete-wall-texture-background-hd.jpg');
+  margin: 0;
+  padding: 0;
+}
+
+.calendar {
+  font-family: 'Titillium Web', sans-serif;
+  width: 200px;
+  height: 200px;
+  margin: 100px;
+  background: white;
+  box-shadow: 0px 5px 5px #222, -5px 7px 0px 3px #726a57, -12px 13px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 1px;
+  transform: rotate(-15deg);
+}
+.calendar:before {
+  content: "";
+  position: absolute;
+  border-left: 200px solid transparent;
+  border-bottom: 30px solid rgba(0, 0, 0, 0.1);
+  bottom: 0px;
+}
+
+.month {
+  width: 100%;
+  background: linear-gradient(left, #de6262, #ffb88c);
+  background: -webkit-linear-gradient(left, #de6262, #ffb88c);
+  background: -moz-linear-gradient(left, #de6262, #ffb88c);
+  height: 40px;
+  color: white;
+  box-shadow: 0px 5px 5px #ddd;
+  position: relative;
+}
+.month:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 60px;
+  top: 5px;
+  border-radius: 50%;
+  background: #4d0000;
+  box-shadow: 60px 0px 0px #4d0000;
+}
+.month:after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 20px;
+  background: #555;
+  border-radius: 20% 20% 0 0;
+  left: 62px;
+  top: -13px;
+  box-shadow: 0px -2px 0px #777, -1px 0px 2px #777, 0px 3px 0px #4d0000, 60px 0px 0px #555, 60px -2px 0px #777;
+}
+.month .month-name {
+  padding-left: 10px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  position: absolute;
+  bottom: 0;
+  text-transform: uppercase;
+}
+
+.number {
+  text-align: center;
+  margin-top: -40px;
+  font-size: 150px;
+  color: #2d2d2d;
+  font-weight: 600;
+}
+
+.two {
+  width: 150px;
+  height: 150px;
+  background: #222;
+  margin: 100px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.caltwo {
+  width: 200px;
+  margin: 100px;
+  background: #222;
+  text-align: center;
+  color: #eaeaea;
+  position: relative;
+  font-family: 'Titillium Web', sans-serif;
+  text-transform: uppercase;
+  padding: 10px 0;
+  box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.daytwo {
+  font-size: 25px;
+  letter-spacing: 7px;
+  font-weight: 300;
+  margin-bottom: -2px;
+}
+
+.monthtwo {
+  font-size: 16px;
+  font-weight: 400;
+  color: #eee;
+  letter-spacing: 5px;
+  word-spacing: 5px;
+}
+.flip-clock-wrapper {
+  position: absolute;
+  top: -350px;
+  left: 380px;
+  width: 550px !important;
+}
+
+.container {
+    position: absolute;
+    display: block;
+    width: 20%;
+    font-family: 'Titillium Web', sans-serif;
+    top: 120px;
+    left: 970px;
+}
+.card {
+    border-radius: 10px;
+    background: #343434;
+    box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.2);
+    padding: 3%;
+    text-align: center;
+    color: #fff;
+}
+.card h4 {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 1rem 0;
+}
+img#icon {
+    width: 20%;
+}
+h5#weather{
+  text-transform: capitalize;
+}

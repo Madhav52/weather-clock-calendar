@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar Clock and Weather App</title>
+    <!-- <meta http-equiv="refresh" content="3";> -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.js"></script>
+</head>
+<body>
+<div class="calendar">
+  <div class="day"></div>
+  <div class="month">
+    <div class="month-name"></div>
+  </div>
+  <div class="number"></div>
+</div>
+<div class="contain">
+  <div class="caltwo">
+    <div class="daytwo"></div>
+    <div class="monthtwo"></div>
+    <div class="numtwo"></div>
+  </div>
+</div>
+<div class="clock"></div>
+<div class="container" id="container">
+  <div class="card">
+      <h2><i class="fa fa-map-marker"></i> <span id="location"></span></h2>
+      <h5 id="weather"></h5>
+      <img id="icon" src="">
+      <h4><span id="temp"></span><sup>o</sup>C</h4>
+  </div>
+</div>
+<script>
+    $(document).ready(function(){
+
+        var clock = $('.clock').FlipClock({
+        clockFace: 'TwelveHourClock'
+    });
+    setInterval(weather(), 5000);
+    function weather(){
+        link = "https://api.openweathermap.org/data/2.5/weather?q=Kathmandu&appid=a30699acb64675ceed17cdb7bd4e8d1f";
+        var request = new XMLHttpRequest();
+        request.open('GET',link,true);
+        request.onload = function(){
+         var obj = JSON.parse(this.response);
+         console.log(obj);
+         
+         document.getElementById('weather').innerHTML = obj.weather[0].description;
+         document.getElementById('location').innerHTML = obj.name;
+         document.getElementById('temp').innerHTML = obj.main.temp - 273.15;
+         document.getElementById('icon').src = "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+
+         if (request.status >= 200 && request.status < 400) {
+         var temp = obj.main.temp;
+         }
+         else{
+          console.log("The city doesn't exist! Try again");
+         }
+        }
+        request.send();
+    }
+    var weekdays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var months=["January","Februray","March","April","May","June","July","August","September","October","November","December"];
+        setInterval(function(){
+        var d=new Date();
+        var day=d.getDay();
+        var day_name=weekdays[day];
+        var num=d.getDate();
+        var mo=d.getMonth();
+        var name=months[mo];
+                $(".month-name").html(name.substring(0,3));
+        $(".number").html(num);
+        $(".monthtwo").html(name+" "+num);
+        $(".daytwo").html(day_name);
+    },1000)
+})
+
+</script>
+</body>
+</html>
